@@ -81,7 +81,7 @@ import           Control.Monad             (forM_)
 import           Control.Monad.Fail        (MonadFail)
 #endif
 
-import           Data.Active               hiding (interval)
+import           Active                    hiding (interval)
 import           Data.Char                 (isDigit)
 import           Data.Colour
 import           Data.Colour.Names
@@ -504,7 +504,7 @@ defaultAnimMainRender ::
     -> Animation b v n
     -> IO ()
 defaultAnimMainRender renderF out (opts,animOpts) anim = do
-  let frames  = simulate (toRational $ animOpts^.fpu) anim
+  let frames  = samples (toRational $ animOpts^.fpu) anim
       nDigits = length . show . length $ frames
   forM_ (zip [1..] frames) $ \(i,d) -> renderF (indexize out nDigits i opts) d
 

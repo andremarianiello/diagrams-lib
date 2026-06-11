@@ -30,7 +30,7 @@ module Diagrams.Animation
 
        ) where
 
-import           Data.Active
+import           Active
 import           Data.Semigroup
 
 import           Diagrams.Core
@@ -99,7 +99,7 @@ animEnvelope = animEnvelope' 30
 --   accurate but slower.
 animEnvelope' :: (OrderedField n, Metric v, Monoid' m)
             => Rational -> QAnimation b v n m -> QAnimation b v n m
-animEnvelope' r a = withEnvelope (simulate r a) <$> a
+animEnvelope' r a = withEnvelope (samples r a) <$> a
 
 -- | @animRect@ works similarly to 'animEnvelope' for 2D diagrams, but
 --   instead of adjusting the envelope, simply returns the smallest
@@ -122,4 +122,4 @@ animRect' r anim
     | null results = rect 1 1
     | otherwise    = boxFit (foldMap boundingBox results) (rect 1 1)
   where
-    results = simulate r anim
+    results = samples r anim

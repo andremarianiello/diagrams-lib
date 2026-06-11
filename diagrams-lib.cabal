@@ -108,7 +108,7 @@ Library
                        dual-tree >= 0.2 && < 0.3,
                        diagrams-core >= 1.4 && < 1.6,
                        diagrams-solve >= 0.1 && < 0.2,
-                       active >= 0.2 && < 0.3,
+                       active >= 0.3 && < 0.4,
                        colour >= 2.3.2 && < 2.4,
                        data-default >= 0.8 && < 0.9,
                        fingertree >= 0.1 && < 0.2,
