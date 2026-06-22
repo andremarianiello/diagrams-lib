@@ -1,0 +1,14 @@
+
+packages: .
+
+profiling: True
+
+source-repository-package
+  type: git
+  location: https://github.com/diagrams/active.git
+  tag: a9a6dd504e40e1789f7c091c9c2f6c3d177adecd
+
+allow-newer: active:*
+
+package diagrams-lib
+  ghc-options: -w
